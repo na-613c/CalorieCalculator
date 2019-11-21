@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "39404323303",
+    "firebase_url": "https://caloriecalculator-b4bc6.firebaseio.com",
+    "project_id": "caloriecalculator-b4bc6",
+    "storage_bucket": "caloriecalculator-b4bc6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39404323303:android:51fc92dc750074cd85fd42",
+        "android_client_info": {
+          "package_name": "com.example.calorieCalculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "39404323303-q60ndask5g1buv08taqj58432or55lmp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.calorieCalculator",
+            "certificate_hash": "d8a1f866acb8574edd1474a56471b49123dbbf11"
+          }
+        },
+        {
+          "client_id": "39404323303-771lhjki3o5hn1e23unf0950448r6cij.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0i_ExW_6opWROWpazs0hT7He2co5AiK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "39404323303-771lhjki3o5hn1e23unf0950448r6cij.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
