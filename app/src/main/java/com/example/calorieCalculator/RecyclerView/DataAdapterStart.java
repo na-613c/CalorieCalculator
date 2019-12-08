@@ -18,6 +18,7 @@ import com.example.calorieCalculator.Data.ProductName;
 import com.example.calorieCalculator.Data.ProductS;
 import com.example.calorieCalculator.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,6 +36,10 @@ public class DataAdapterStart extends RecyclerView.Adapter<DataAdapterStart.View
         notifyDataSetChanged();
     }
 
+    public void clear(){
+        productS = new ArrayList<>();
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override

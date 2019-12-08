@@ -41,8 +41,8 @@ public class UpdFr extends Fragment {
                 productS.setCalorie(Integer.parseInt(editText2.getText().toString()));
 
 
-                    myRef = FirebaseDatabase.getInstance().getReference();
-                    myRef.push().setValue(productS);
+                myRef = FirebaseDatabase.getInstance().getReference();
+                myRef.push().setValue(productS);
 
 
                 addFr = new AddFr();

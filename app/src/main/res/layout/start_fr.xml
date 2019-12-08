@@ -26,17 +26,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=" Новый список " />
+                android:text=" Очистить список " />
 
 
         </LinearLayout>
 
 
         <Button
-            android:id="@+id/start"
-            android:layout_width="match_parent"
+            android:id="@+id/updPerson"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" посчитать " />
+            android:text=" изменить параметры " />
 
         <TextView
             android:id="@+id/textViewResult"

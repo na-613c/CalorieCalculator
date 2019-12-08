@@ -67,7 +67,13 @@ public class DataAdapterAdd extends RecyclerView.Adapter<DataAdapterAdd.ViewHold
 
                 productName.setName(holder.name_add.getText().toString());
                 productName.setCalorie(Integer.parseInt(holder.cal_add.getText().toString()));
-                productName.setWeight(Integer.parseInt(holder.editText.getText().toString()));
+                try{
+                    productName.setWeight(Integer.parseInt(holder.editText.getText().toString()));
+                }catch (Exception e){
+                    holder.editText.setText("0");
+                    productName.setWeight(0);
+                }
+
                 Loader.productList.add(productName);
                 Log.d("__productList_",""+productList.get(0).getName());
 
