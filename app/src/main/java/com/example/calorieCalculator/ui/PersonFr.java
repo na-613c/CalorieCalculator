@@ -8,9 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-
-
-
 import com.example.calorieCalculator.MainActivity;
 import com.example.calorieCalculator.R;
 
@@ -20,14 +17,14 @@ public class PersonFr extends Fragment {
     private EditText weight;
     private EditText age;
 
-    StartFr startFr;
+    private StartFr startFr;
 
-    Button save;
+    private Button save;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v =  inflater.inflate(R.layout.person_fr, null);
+        View v = inflater.inflate(R.layout.person_fr, null);
         height = (EditText) v.findViewById(R.id.height);
         weight = (EditText) v.findViewById(R.id.weight);
         age = (EditText) v.findViewById(R.id.age);

@@ -14,26 +14,33 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.calorieCalculator.CountCalForPerson;
 import com.example.calorieCalculator.Data.Loader;
 import com.example.calorieCalculator.Data.ProductName;
-import com.example.calorieCalculator.MainActivity;
 import com.example.calorieCalculator.R;
 import com.example.calorieCalculator.RecyclerView.DataAdapterStart;
 
 import java.util.List;
 
 public class StartFr extends Fragment {
-    Button add_btn;
-    Button new_btn;
-    Button updPerson;
 
-    PersonFr personFr;
-    AddFr addFr;
-    DataAdapterStart adapterStart;
-    CountCalForPerson countCalForPerson;
+    private Button add_btn;
+    private Button new_btn;
+    private Button updPerson;
 
-    String allCal;
+    private PersonFr personFr;
+    private AddFr addFr;
+    private DataAdapterStart adapterStart;
+    private CountCalForPerson countCalForPerson;
 
-    TextView textViewResult;
-    int result = 0;
+    private String allCal;
+
+    private TextView textViewResult;
+    private TextView fats;
+    private TextView protein;
+    private TextView carbohydrates;
+
+    private int resultInt = 0;
+    private int fatsInt = 0;
+    private int proteinInt = 0;
+    private int carbohydratesInt = 0;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -43,26 +50,22 @@ public class StartFr extends Fragment {
 
         final RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.list_start);
         textViewResult = (TextView) v.findViewById(R.id.textViewResult);
+        fats = (TextView) v.findViewById(R.id.fats);
+        protein = (TextView) v.findViewById(R.id.protein);
+        carbohydrates = (TextView) v.findViewById(R.id.carbohydrates);
 
         updPerson = (Button) v.findViewById(R.id.updPerson);
         add_btn = (Button) v.findViewById(R.id.add_btn);
         new_btn = (Button) v.findViewById(R.id.new_btn);
+
+        countCalForPerson = new CountCalForPerson();
+        allCal = countCalForPerson.countCal() + "";
 
         /******************** создаем адаптер *******************/
         List<ProductName> productArr = Loader.productList;
         adapterStart = new DataAdapterStart(inflater.getContext(), productArr);
         /**************** устанавливаем для списка адаптер **************/
         recyclerView.setAdapter(adapterStart);
-
-
-//
-//        int ageInt = Integer.parseInt(String.valueOf(R.string.age));
-//        int heightInt = Integer.parseInt(String.valueOf(R.string.height));
-//        int weightInt = Integer.parseInt(String.valueOf(R.string.weight));
-//
-//        MainActivity.personObj.setAge(ageInt);
-//        MainActivity.personObj.setHeight(heightInt);
-//        MainActivity.personObj.setWeight(weightInt);
 
 
         add_btn.setOnClickListener(new View.OnClickListener() {
@@ -86,33 +89,48 @@ public class StartFr extends Fragment {
         });
 
 
-        countCalForPerson = new CountCalForPerson();
-        allCal = countCalForPerson.countCal() + "";
-
         new_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 Loader.init();
                 adapterStart.clear();
-                result = 0;
+                resultInt = 0;
+                fatsInt = 0;
+                proteinInt = 0;
+                carbohydratesInt = 0;
 
                 countCalForPerson = new CountCalForPerson();
                 allCal = countCalForPerson.countCal() + "";
 
-                textViewResult.setText(result + " из " + allCal + " Ккал");
+                StartSetText();
             }
         });
 
-
         for (int i = 0; productArr.size() > i; i++) {
-            result += (productArr.get(i).getWeight() * productArr.get(i).getCalorie() / 100);
+            resultInt += (productArr.get(i).getCalorie() * productArr.get(i).getWeight() / 100);
+            fatsInt += (productArr.get(i).getFats() * productArr.get(i).getWeight() / 100);
+            proteinInt += (productArr.get(i).getProtein() * productArr.get(i).getWeight() / 100);
+            carbohydratesInt += (productArr.get(i).getCarbohydrates() * productArr.get(i).getWeight() / 100);
+
         }
 
-
-        textViewResult.setText(result + " из " + allCal + " Ккал");
-
+        if (resultInt == 0 & fatsInt == 0 & proteinInt == 0 & carbohydratesInt == 0) {
+            StartSetText();
+        } else {
+            textViewResult.setText(resultInt + " из " + allCal + " Ккал");
+            protein.setText("Бел " + proteinInt + "г, ");
+            fats.setText("Жир " + fatsInt + "г, ");
+            carbohydrates.setText("Угл " + carbohydratesInt + "г.");
+        }
 
         return v;
+    }
+
+    private void StartSetText() {
+        textViewResult.setText("Вам нужно " + allCal + " Ккал");
+        fats.setText("");
+        protein.setText("");
+        carbohydrates.setText("");
     }
 
 }

@@ -37,27 +37,66 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" изменить параметры " />
+            android:text=" изменить параметры пользователя" />
 
         <TextView
+            android:textColor="#000"
             android:id="@+id/textViewResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:text="wwwwwww" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="50dp">
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/fats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Жир"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/protein"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Белок"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/carbohydrates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Углевод"
+                android:textColor="#000"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_start"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="LinearLayoutManager">
-
-
         </androidx.recyclerview.widget.RecyclerView>
 
 

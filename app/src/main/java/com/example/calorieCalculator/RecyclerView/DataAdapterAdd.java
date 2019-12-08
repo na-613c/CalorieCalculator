@@ -18,10 +18,7 @@ import com.example.calorieCalculator.Data.Loader;
 import com.example.calorieCalculator.Data.ProductName;
 import com.example.calorieCalculator.Data.ProductS;
 import com.example.calorieCalculator.R;
-import com.example.calorieCalculator.ui.StartFr;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.calorieCalculator.Data.Loader.productList;
@@ -53,37 +50,39 @@ public class DataAdapterAdd extends RecyclerView.Adapter<DataAdapterAdd.ViewHold
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull final DataAdapterAdd.ViewHolder holder, int position) {
-        ProductS product = productS.get(position);
+        final ProductS product = productS.get(position);
 
         holder.name_add.setText(product.getName());
-        holder.cal_add.setText(Integer.toString(product.getCalorie()));
+        holder.cal_add.setText(product.getCalorie() + " Ккал");
 
         holder.list_add_1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
 
-
                 ProductName productName = new ProductName();
 
-                productName.setName(holder.name_add.getText().toString());
-                productName.setCalorie(Integer.parseInt(holder.cal_add.getText().toString()));
-                try{
+                productName.setName(product.getName());
+                productName.setCalorie(product.getCalorie());
+
+                try {
                     productName.setWeight(Integer.parseInt(holder.editText.getText().toString()));
-                }catch (Exception e){
+                } catch (Exception e) {
                     holder.editText.setText("0");
                     productName.setWeight(0);
                 }
 
-                Loader.productList.add(productName);
-                Log.d("__productList_",""+productList.get(0).getName());
+                productName.setFats(product.getFats());
+                productName.setProtein(product.getProtein());
+                productName.setCarbohydrates(product.getCarbohydrates());
 
-                int backColor = Color.rgb(100,255,0);
+                Loader.productList.add(productName);
+                Log.d("__productList_", "" + productList.get(0).getName());
+
+                int backColor = Color.rgb(100, 255, 0);
                 holder.list_add_1.setBackgroundColor(backColor);
 
             }
         });
-
-
 
 
     }

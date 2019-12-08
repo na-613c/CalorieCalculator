@@ -38,12 +38,13 @@
 
 
     <EditText
+        android:layout_weight="2"
         android:id="@+id/editText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:ems="10"
-        android:hint="Вес"
+        android:hint="Вес, г"
         android:inputType="number" />
 
 

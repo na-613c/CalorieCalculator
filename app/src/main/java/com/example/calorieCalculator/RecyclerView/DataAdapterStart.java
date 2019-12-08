@@ -32,11 +32,7 @@ public class DataAdapterStart extends RecyclerView.Adapter<DataAdapterStart.View
         this.inflater = LayoutInflater.from(context);
     }
 
-    public void updateItems() {
-        notifyDataSetChanged();
-    }
-
-    public void clear(){
+    public void clear() {
         productS = new ArrayList<>();
         notifyDataSetChanged();
     }
@@ -54,13 +50,16 @@ public class DataAdapterStart extends RecyclerView.Adapter<DataAdapterStart.View
     public void onBindViewHolder(@NonNull final DataAdapterStart.ViewHolder holder, int position) {
         ProductName product = productS.get(position);
 
-        Log.d("____!_!_","result "+product.getName()+ " "
-                + product.getCalorie()+" "
-                +product.getWeight()+" ");
+        Log.d("____!_!_", "result " + product.getName() + " "
+                + product.getCalorie() + " "
+                + product.getWeight() + " ");
 
         holder.name_start.setText(product.getName());
-        holder.cal_start.setText(product.getCalorie()+"");
-        holder.weight_start.setText(product.getWeight()+"");
+        holder.cal_start.setText(product.getCalorie() + " Ккал");
+        holder.weight_start.setText("Вес: " + product.getWeight() + "г");
+        holder.fats_start.setText("Жир: " + product.getFats() + "г");
+        holder.protein_start.setText("Бел: " + product.getProtein() + "г");
+        holder.carbohydrates_start.setText("Угл: " + product.getCarbohydrates() + "г");
 
     }
 
@@ -71,7 +70,7 @@ public class DataAdapterStart extends RecyclerView.Adapter<DataAdapterStart.View
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        final TextView name_start, cal_start,weight_start;
+        final TextView name_start, cal_start, weight_start, fats_start, protein_start, carbohydrates_start;
 
 
         ViewHolder(View view) {
@@ -79,8 +78,9 @@ public class DataAdapterStart extends RecyclerView.Adapter<DataAdapterStart.View
             name_start = (TextView) view.findViewById(R.id.name_start);
             cal_start = (TextView) view.findViewById(R.id.cal_start);
             weight_start = (TextView) view.findViewById(R.id.weight_start);
-
-
+            fats_start = (TextView) view.findViewById(R.id.fats_start);
+            protein_start = (TextView) view.findViewById(R.id.protein_start);
+            carbohydrates_start = (TextView) view.findViewById(R.id.carbohydrates_start);
         }
     }
 }

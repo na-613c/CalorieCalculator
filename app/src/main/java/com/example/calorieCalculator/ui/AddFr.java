@@ -1,8 +1,6 @@
 package com.example.calorieCalculator.ui;
 
-import android.app.DownloadManager;
 import android.app.Fragment;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,10 +25,10 @@ import java.util.List;
 
 public class AddFr extends Fragment {
 
-    Button btn_start;
-    StartFr startFr;
-    Button btn_new;
-    UpdFr updFr;
+    private Button btn_start;
+    private StartFr startFr;
+    private Button btn_new;
+    private UpdFr updFr;
 
     private List<ProductS> productArr = new ArrayList<>();
     private DatabaseReference myRef;
@@ -39,8 +37,9 @@ public class AddFr extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.add_fr, null);
-        btn_start = (Button) v.findViewById(R.id.btn_start);
 
+        btn_start = (Button) v.findViewById(R.id.btn_start);
+        btn_new = (Button) v.findViewById(R.id.btn_new);
 
         btn_start.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -52,9 +51,6 @@ public class AddFr extends Fragment {
                         .commit();
             }
         });
-
-
-        btn_new = (Button) v.findViewById(R.id.btn_new);
 
 
         btn_new.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +82,7 @@ public class AddFr extends Fragment {
 
                 assert productFromDb != null;
 
-                productArr.add(productFromDb);
+                productArr.add(0, productFromDb);
 
                 adapterAdd.updateItems();
 
