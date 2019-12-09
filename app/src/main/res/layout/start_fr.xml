@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFE6DB">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,92 +13,104 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/add_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="Добавить продукт" />
+                android:background="#fff"
+                android:text="Добавить продукт"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/new_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text=" Очистить список " />
+                android:background="#fff"
+                android:text=" Очистить список "
+                android:textStyle="bold" />
 
 
         </LinearLayout>
 
 
-        <Button
-            android:id="@+id/updPerson"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" изменить параметры пользователя" />
-
         <TextView
-            android:textColor="#000"
             android:id="@+id/textViewResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
             android:gravity="center"
+            android:text="wwwwwww"
+            android:textColor="#000"
             android:textSize="25dp"
-            android:text="wwwwwww" />
+            android:textStyle="bold" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="50dp">
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <TextView
-                android:gravity="center"
                 android:id="@+id/fats"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Жир"
                 android:textColor="#000"
                 android:textSize="20sp" />
 
 
             <TextView
-                android:gravity="center"
                 android:id="@+id/protein"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Белок"
                 android:textColor="#000"
                 android:textSize="20sp" />
 
             <TextView
-                android:gravity="center"
                 android:id="@+id/carbohydrates"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="Углевод"
                 android:textColor="#000"
                 android:textSize="20sp" />
         </LinearLayout>
 
-
+        <Button
+            android:id="@+id/updPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="20dp"
+            android:background="#fff"
+            android:paddingHorizontal="20dp"
+            android:text=" изменить параметры пользователя"
+            android:textStyle="bold" />
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_start"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="LinearLayoutManager">
-        </androidx.recyclerview.widget.RecyclerView>
+            app:layoutManager="LinearLayoutManager"></androidx.recyclerview.widget.RecyclerView>
 
 
     </LinearLayout>

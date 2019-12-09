@@ -2,6 +2,7 @@ package com.example.calorieCalculator.ui;
 
 import android.annotation.SuppressLint;
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.calorieCalculator.CountCalForPerson;
-import com.example.calorieCalculator.Data.Loader;
-import com.example.calorieCalculator.Data.ProductName;
+import com.example.calorieCalculator.Domain.GenerateProductList;
+import com.example.calorieCalculator.Domain.ProductName;
 import com.example.calorieCalculator.R;
 import com.example.calorieCalculator.RecyclerView.DataAdapterStart;
 
@@ -30,17 +31,21 @@ public class StartFr extends Fragment {
     private DataAdapterStart adapterStart;
     private CountCalForPerson countCalForPerson;
 
-    private String allCal;
+    private static int allCal;
 
-    private TextView textViewResult;
-    private TextView fats;
-    private TextView protein;
-    private TextView carbohydrates;
+    private static TextView textViewResult;
+    private static TextView fats;
+    private static TextView protein;
+    private static TextView carbohydrates;
 
-    private int resultInt = 0;
-    private int fatsInt = 0;
-    private int proteinInt = 0;
-    private int carbohydratesInt = 0;
+    private static int resultInt = 0;
+    private static int fatsInt = 0;
+    private static int proteinInt = 0;
+    private static int carbohydratesInt = 0;
+    private static int black = Color.rgb(0, 0, 0);
+    private static int red = Color.rgb(255, 0, 0);
+    private static int green = Color.rgb(0, 155, 0);
+
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -59,10 +64,10 @@ public class StartFr extends Fragment {
         new_btn = (Button) v.findViewById(R.id.new_btn);
 
         countCalForPerson = new CountCalForPerson();
-        allCal = countCalForPerson.countCal() + "";
+        allCal = countCalForPerson.countCal();
 
         /******************** создаем адаптер *******************/
-        List<ProductName> productArr = Loader.productList;
+        List<ProductName> productArr = GenerateProductList.productList;
         adapterStart = new DataAdapterStart(inflater.getContext(), productArr);
         /**************** устанавливаем для списка адаптер **************/
         recyclerView.setAdapter(adapterStart);
@@ -92,7 +97,7 @@ public class StartFr extends Fragment {
         new_btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                Loader.init();
+                GenerateProductList.init();
                 adapterStart.clear();
                 resultInt = 0;
                 fatsInt = 0;
@@ -100,37 +105,56 @@ public class StartFr extends Fragment {
                 carbohydratesInt = 0;
 
                 countCalForPerson = new CountCalForPerson();
-                allCal = countCalForPerson.countCal() + "";
+                allCal = countCalForPerson.countCal();
 
                 StartSetText();
             }
         });
 
-        for (int i = 0; productArr.size() > i; i++) {
-            resultInt += (productArr.get(i).getCalorie() * productArr.get(i).getWeight() / 100);
-            fatsInt += (productArr.get(i).getFats() * productArr.get(i).getWeight() / 100);
-            proteinInt += (productArr.get(i).getProtein() * productArr.get(i).getWeight() / 100);
-            carbohydratesInt += (productArr.get(i).getCarbohydrates() * productArr.get(i).getWeight() / 100);
+        writeInfo();
+
+        return v;
+    }
+
+    private static void StartSetText() {
+
+
+        textViewResult.setText("Вам нужно " + allCal + " Ккал");
+        textViewResult.setTextColor(black);
+        fats.setText("");
+        protein.setText("");
+        carbohydrates.setText("");
+    }
+
+    public static void writeInfo() {
+
+        resultInt = 0;
+        fatsInt = 0;
+        proteinInt = 0;
+        carbohydratesInt = 0;
+
+        for (int i = 0; GenerateProductList.productList.size() > i; i++) {
+            resultInt += (GenerateProductList.productList.get(i).getCalorie() * GenerateProductList.productList.get(i).getWeight() / 100);
+            fatsInt += (GenerateProductList.productList.get(i).getFats() * GenerateProductList.productList.get(i).getWeight() / 100);
+            proteinInt += (GenerateProductList.productList.get(i).getProtein() * GenerateProductList.productList.get(i).getWeight() / 100);
+            carbohydratesInt += (GenerateProductList.productList.get(i).getCarbohydrates() * GenerateProductList.productList.get(i).getWeight() / 100);
 
         }
 
         if (resultInt == 0 & fatsInt == 0 & proteinInt == 0 & carbohydratesInt == 0) {
             StartSetText();
         } else {
+            if (resultInt - 200 > allCal | resultInt + 200 < allCal) {
+                textViewResult.setTextColor(red);
+
+            } else {
+                textViewResult.setTextColor(green);
+            }
             textViewResult.setText(resultInt + " из " + allCal + " Ккал");
             protein.setText("Бел " + proteinInt + "г, ");
             fats.setText("Жир " + fatsInt + "г, ");
             carbohydrates.setText("Угл " + carbohydratesInt + "г.");
         }
-
-        return v;
-    }
-
-    private void StartSetText() {
-        textViewResult.setText("Вам нужно " + allCal + " Ккал");
-        fats.setText("");
-        protein.setText("");
-        carbohydrates.setText("");
     }
 
 }

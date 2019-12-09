@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFE6DB">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,30 +11,29 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="100dp"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <TextView
-                android:textSize="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Рост, см" />
+                android:text="Рост, см"
+                android:textColor="#000"
+                android:textSize="30sp" />
 
             <EditText
-                android:textSize="30sp"
                 android:id="@+id/height"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="@string/height" />
+                android:text="@string/height"
+                android:textSize="30sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -43,19 +43,20 @@
 
 
             <TextView
-                android:textSize="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Вес, кг" />
+                android:text="Вес, кг"
+                android:textColor="#000"
+                android:textSize="30sp" />
 
             <EditText
                 android:id="@+id/weight"
-                android:textSize="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="@string/weight" />
+                android:text="@string/weight"
+                android:textSize="30sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -65,29 +66,111 @@
 
 
             <TextView
-                android:textSize="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Возраст, лет" />
+                android:text="Возраст, лет"
+                android:textColor="#000"
+                android:textSize="30sp" />
 
             <EditText
                 android:id="@+id/age"
-                android:textSize="30sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:text="@string/age" />
+                android:text="@string/age"
+                android:textSize="30sp" />
+
         </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonMan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Мужчина"
+                android:textSize="25sp" />
+
+            <RadioButton
+                android:id="@+id/radioButtonWoman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Женщина"
+                android:textSize="25sp" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/activ1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Минимальная активность"
+                android:textSize="25sp" />
+
+            <RadioButton
+                android:id="@+id/activ2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Слабая активность"
+                android:textSize="25sp" />
+
+            <RadioButton
+                android:id="@+id/activ3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Средняя активность"
+                android:textSize="25sp" />
+
+            <RadioButton
+                android:id="@+id/activ4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Высокая активность"
+                android:textSize="25sp" />
+
+
+            <RadioButton
+                android:id="@+id/activ5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Экстра-активность"
+                android:textSize="25sp" />
+
+
+        </RadioGroup>
 
         <Button
             android:id="@+id/save"
-            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Сохранить">
-        </Button>
+            android:layout_marginTop="20dp"
+            android:text="Сохранить"
+            android:layout_margin="5dp"
+            android:background="#fff"
+            android:paddingHorizontal="20dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </RelativeLayout>

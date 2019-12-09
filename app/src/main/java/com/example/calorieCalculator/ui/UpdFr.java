@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.calorieCalculator.Data.ProductS;
+import com.example.calorieCalculator.Domain.ProductS;
 import com.example.calorieCalculator.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

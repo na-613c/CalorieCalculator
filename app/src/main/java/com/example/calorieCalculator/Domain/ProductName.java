@@ -1,11 +1,21 @@
-package com.example.calorieCalculator.Data;
+package com.example.calorieCalculator.Domain;
 
-public class ProductS {
+public class ProductName {
+
     private String name;
     private int calorie;
+    private int weight;
     private int fats;
     private int protein;
     private int carbohydrates;
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
     public String getName() {
         return name;

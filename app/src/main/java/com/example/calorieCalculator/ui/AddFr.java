@@ -10,7 +10,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.calorieCalculator.Data.ProductS;
+import com.example.calorieCalculator.Domain.ProductS;
 import com.example.calorieCalculator.R;
 import com.example.calorieCalculator.RecyclerView.DataAdapterAdd;
 import com.google.firebase.database.ChildEventListener;

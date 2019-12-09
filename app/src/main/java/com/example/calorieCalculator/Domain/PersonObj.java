@@ -1,10 +1,12 @@
-package com.example.calorieCalculator.Data;
+package com.example.calorieCalculator.Domain;
 
 public class PersonObj {
 
     private int height;
     private int weight;
     private int age;
+    private String gender;
+    private double activity;
 
     public int getHeight() {
         return height;
@@ -28,5 +30,21 @@ public class PersonObj {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public double getActivity() {
+        return activity;
+    }
+
+    public void setActivity(double activity) {
+        this.activity = activity;
     }
 }

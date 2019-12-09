@@ -2,17 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFE6DB"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="60dp"
         android:layout_marginRight="50dp"
+        android:gravity="center"
         android:text="Введите данные на 100 грамм продукта."
-        android:textSize="20sp"/>
+        android:textColor="#000"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/editText1"
@@ -23,7 +25,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginRight="50dp"
         android:hint="Название"
-         />
+        android:textColorHint="#000" />
 
     <EditText
         android:id="@+id/editText2"
@@ -34,7 +36,9 @@
         android:layout_marginRight="50dp"
         android:ems="10"
         android:hint="Калорийность, Ккал"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="#000"
+        android:textColorHint="#000" />
 
     <EditText
         android:id="@+id/editText3"
@@ -45,7 +49,8 @@
         android:layout_marginRight="50dp"
         android:ems="10"
         android:hint="Жирность, г"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColorHint="#000" />
 
     <EditText
         android:id="@+id/editText4"
@@ -56,7 +61,8 @@
         android:layout_marginRight="50dp"
         android:ems="10"
         android:hint="Белки, г"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColorHint="#000" />
 
     <EditText
         android:id="@+id/editText5"
@@ -67,7 +73,8 @@
         android:layout_marginRight="50dp"
         android:ems="10"
         android:hint="Углеводы, г"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColorHint="#000" />
 
 
     <Button
@@ -75,6 +82,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_margin="5dp"
         android:layout_marginTop="60dp"
-        android:text="Добавить в БД" />
+        android:background="#fff"
+        android:paddingHorizontal="20dp"
+        android:text="Добавить в БД"
+        android:textStyle="bold" />
 </LinearLayout>

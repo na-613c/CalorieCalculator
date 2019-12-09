@@ -3,7 +3,6 @@ package com.example.calorieCalculator.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,20 +13,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.calorieCalculator.Data.Loader;
-import com.example.calorieCalculator.Data.ProductName;
-import com.example.calorieCalculator.Data.ProductS;
+import com.example.calorieCalculator.Domain.GenerateProductList;
+import com.example.calorieCalculator.Domain.ProductName;
+import com.example.calorieCalculator.Domain.ProductS;
 import com.example.calorieCalculator.R;
 
 import java.util.List;
-
-import static com.example.calorieCalculator.Data.Loader.productList;
 
 
 public class DataAdapterAdd extends RecyclerView.Adapter<DataAdapterAdd.ViewHolder> {
 
     private LayoutInflater inflater;
     private List<ProductS> productS;
+    private boolean flag;
+    private int active = Color.argb(50, 255, 253, 1);
+    private int passive = Color.rgb(255, 255, 255);
 
     public DataAdapterAdd(Context context, List<ProductS> productS) {
         this.productS = productS;
@@ -52,14 +52,16 @@ public class DataAdapterAdd extends RecyclerView.Adapter<DataAdapterAdd.ViewHold
     public void onBindViewHolder(@NonNull final DataAdapterAdd.ViewHolder holder, int position) {
         final ProductS product = productS.get(position);
 
+
         holder.name_add.setText(product.getName());
         holder.cal_add.setText(product.getCalorie() + " Ккал");
 
+
+        final ProductName productName = new ProductName();
+
         holder.list_add_1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-
-                ProductName productName = new ProductName();
+                flag = true;
 
                 productName.setName(product.getName());
                 productName.setCalorie(product.getCalorie());
@@ -75,11 +77,16 @@ public class DataAdapterAdd extends RecyclerView.Adapter<DataAdapterAdd.ViewHold
                 productName.setProtein(product.getProtein());
                 productName.setCarbohydrates(product.getCarbohydrates());
 
-                Loader.productList.add(productName);
-                Log.d("__productList_", "" + productList.get(0).getName());
+                if (flag & productName.getWeight() != 0) {
+                    GenerateProductList.productList.add(0, productName);
+                    holder.list_add_1.setBackgroundColor(active);
+                    flag = false;
+                } else {
+                    GenerateProductList.productList.remove(productName);
+                    holder.list_add_1.setBackgroundColor(passive);
+                    flag = true;
+                }
 
-                int backColor = Color.rgb(100, 255, 0);
-                holder.list_add_1.setBackgroundColor(backColor);
 
             }
         });

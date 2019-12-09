@@ -1,60 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="1dp"
+    android:background="#ffffff"
     android:orientation="vertical"
     android:padding="16dp">
-
-    <TextView
-        android:id="@+id/name_start"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="Название"
-        android:textColor="#000"
-        android:textSize="22sp"
-        android:layout_marginBottom="1dp"
-        android:textStyle="bold"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:layout_marginBottom="1dp">
-
-        <TextView
-            android:id="@+id/fats_start"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Жир"
-            android:textColor="#000"
-            android:textSize="20sp" />
-
-
-        <TextView
-            android:id="@+id/protein_start"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Белок"
-            android:textColor="#000"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/carbohydrates_start"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Углевод"
-            android:textColor="#000"
-            android:textSize="20sp" />
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -62,26 +14,106 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-
         <TextView
-            android:id="@+id/cal_start"
+            android:id="@+id/name_start"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Калории"
+            android:text="Название"
             android:textColor="#000"
-            android:textSize="20sp" />
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/weight_start"
+        <ImageButton
+            android:id="@+id/imageButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:background="#fff"
+            app:srcCompat="@android:drawable/ic_delete" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="Вес"
-            android:textColor="#000"
-            android:textSize="20sp" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fats_start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Жир"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/protein_start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Белок"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/carbohydrates_start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Углевод"
+                android:textColor="#000"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/cal_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Калории"
+                android:textColor="#FF5722"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/weight_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Вес"
+                android:textColor="#000"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
 

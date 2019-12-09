@@ -2,12 +2,11 @@ package com.example.calorieCalculator;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.calorieCalculator.Data.Loader;
-import com.example.calorieCalculator.Data.PersonObj;
+import com.example.calorieCalculator.Domain.GenerateProductList;
+import com.example.calorieCalculator.Domain.PersonObj;
 import com.example.calorieCalculator.ui.StartFr;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Loader.init();
+        GenerateProductList.init();
 
         personObj = new PersonObj();
         int ageInt = Integer.parseInt(getString(R.string.age));
@@ -29,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         personObj.setAge(ageInt);
         personObj.setHeight(heightInt);
         personObj.setWeight(weightInt);
+        personObj.setGender("man");
+        personObj.setActivity(1.2);
 
         startFr = new StartFr();
         fTrans = getFragmentManager().beginTransaction();

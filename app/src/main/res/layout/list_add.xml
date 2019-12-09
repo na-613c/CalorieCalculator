@@ -5,7 +5,8 @@
     android:layout_marginBottom="1dp"
     android:orientation="horizontal"
     android:padding="16dp"
-    android:id="@+id/list_add_1">
+    android:id="@+id/list_add_1"
+    android:background="#fff">
 
 
     <LinearLayout
@@ -30,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Калории"
-            android:textColor="#000"
+            android:textColor="#FF5722"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -45,7 +46,8 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="Вес, г"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColorHint="#000"/>
 
 
 </LinearLayout>
