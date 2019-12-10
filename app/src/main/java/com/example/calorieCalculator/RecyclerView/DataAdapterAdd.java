@@ -3,6 +3,7 @@ package com.example.calorieCalculator.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ public class DataAdapterAdd extends RecyclerView.Adapter<DataAdapterAdd.ViewHold
 
     private LayoutInflater inflater;
     private List<ProductS> productS;
-    private boolean flag;
+
     private int active = Color.argb(50, 255, 253, 1);
     private int passive = Color.rgb(255, 255, 255);
 
@@ -52,7 +53,6 @@ public class DataAdapterAdd extends RecyclerView.Adapter<DataAdapterAdd.ViewHold
     public void onBindViewHolder(@NonNull final DataAdapterAdd.ViewHolder holder, int position) {
         final ProductS product = productS.get(position);
 
-
         holder.name_add.setText(product.getName());
         holder.cal_add.setText(product.getCalorie() + " Ккал");
 
@@ -61,7 +61,7 @@ public class DataAdapterAdd extends RecyclerView.Adapter<DataAdapterAdd.ViewHold
 
         holder.list_add_1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                flag = true;
+
 
                 productName.setName(product.getName());
                 productName.setCalorie(product.getCalorie());
@@ -77,14 +77,25 @@ public class DataAdapterAdd extends RecyclerView.Adapter<DataAdapterAdd.ViewHold
                 productName.setProtein(product.getProtein());
                 productName.setCarbohydrates(product.getCarbohydrates());
 
-                if (flag & productName.getWeight() != 0) {
-                    GenerateProductList.productList.add(0, productName);
-                    holder.list_add_1.setBackgroundColor(active);
-                    flag = false;
+                if (productName.getWeight() != 0) {
+
+                    boolean check = GenerateProductList.productList.contains(productName);
+                    Log.d("__index", "" + check);
+
+                    if (check) {
+                        Log.d("__index", "del");
+                        GenerateProductList.productList.remove(productName);
+                        holder.list_add_1.setBackgroundColor(passive);
+                    } else {
+                        GenerateProductList.productList.add(0, productName);
+                        Log.d("__index", "add");
+                        holder.list_add_1.setBackgroundColor(active);
+                    }
+
                 } else {
+                    Log.d("__index", "del_else");
                     GenerateProductList.productList.remove(productName);
                     holder.list_add_1.setBackgroundColor(passive);
-                    flag = true;
                 }
 
 
