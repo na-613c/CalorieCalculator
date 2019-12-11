@@ -53,12 +53,17 @@ public class DataAdapterStart extends RecyclerView.Adapter<DataAdapterStart.View
                 + product.getCalorie() + " "
                 + product.getWeight() + " ");
 
+        int cal = (int) product.getCalorie()*product.getWeight() /100;
+        int fats = (int) product.getFats()*product.getWeight() /100;
+        int protein = (int) product.getProtein()*product.getWeight() /100;
+        int carbohydrates = (int) product.getCarbohydrates()*product.getWeight() /100;
+
         holder.name_start.setText(product.getName());
-        holder.cal_start.setText(product.getCalorie() + " Ккал");
+        holder.cal_start.setText(cal + " Ккал");
         holder.weight_start.setText("Вес: " + product.getWeight() + "г");
-        holder.fats_start.setText("Ж: " + product.getFats() + "г");
-        holder.protein_start.setText("Б: " + product.getProtein() + "г");
-        holder.carbohydrates_start.setText("У: " + product.getCarbohydrates() + "г");
+        holder.fats_start.setText("Ж: " + fats + "г");
+        holder.protein_start.setText("Б: " + protein + "г");
+        holder.carbohydrates_start.setText("У: " + carbohydrates + "г");
 
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
